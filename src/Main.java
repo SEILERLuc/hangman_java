@@ -6,14 +6,11 @@ public class Main {
 		mot word=new mot();
 		word.ChooseRandomWord();
 		System.out.println("HANGMAN en java");
-<<<<<<< HEAD
 		
 		//Create the Player
 		Player player = new Player();
 		
 		//Create a Hangman
-=======
->>>>>>> fa4955498dc1b4550705b6c56baed182b756ab3d
 		Hangman hangman = new Hangman("HELLOWORLD");
 		System.out.println(hangman.toString());
 		
