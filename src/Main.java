@@ -14,6 +14,7 @@ public class Main {
 		
 		//Create a Hangman
 		System.out.println(hangman.toString());
+		hangman.displayWord();
 		
 		// Faire menu
 		// afficher le mot en tirets
@@ -42,6 +43,11 @@ public class Main {
 				System.out.println("Vous avez entré : " + userLetter);
 				player.setLetter(userLetter);
 				System.out.println("Letter of the player " + player.getLetter());
+				if (hangman.isInside(userLetter)) {
+					System.out.println("La lettre choisie est dans le mot");
+				} else {
+					System.out.println("La lettre choisie n'est pas dans le mot");
+				}
 				break;
 			}
 		}

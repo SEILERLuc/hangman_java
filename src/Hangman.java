@@ -6,6 +6,7 @@ public class Hangman {
 	private boolean IsWordFind;
 	private int Lives=10;
 	mot wordToFind=new mot();
+	
 	public Hangman() {
 		this.WordToFind = wordToFind.ChooseRandomWord();
 		this.CurrentWord = "";
@@ -27,7 +28,7 @@ public class Hangman {
 	}
 	public void Wrongword() {
 		System.out.println(Lives);
-		System.out.println("Wrong letter! You lost 1 life");
+		System.out.println("Wrong letter! You lost 2 lifes");
 		Lives-=2;
 		System.out.println(Lives);
 	}
@@ -39,11 +40,13 @@ public class Hangman {
 	
 	public boolean isInside(String letter) {
 		if (this.WordToFind.contains(letter)) {
-			System.out.println("La lettre choisie n'est pas dans le mot");
 			return true;
 		}
-		System.out.println("La lettre choise est dans le mot");
 		return false;
+	}
+	
+	public void displayWord() {
+		System.out.println("The current word is: " + this.CurrentWord);
 	}
 	
 }
