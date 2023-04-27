@@ -7,12 +7,12 @@ public class Main {
 		mot word=new mot();
 		word.ChooseRandomWord();
 		System.out.println("HANGMAN en java");
+		Hangman hangman = new Hangman();
 		
 		//Create the Player
 		Player player = new Player();
 		
 		//Create a Hangman
-		Hangman hangman = new Hangman("HELLOWORLD");
 		System.out.println(hangman.toString());
 		
 		// Faire menu

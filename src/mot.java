@@ -37,11 +37,10 @@ public class mot {
 			"recreation",
 			"rentree",
 			"toilette"};
-	public void ChooseRandomWord() {
+	public String ChooseRandomWord() {
 		int randomIndex = (int) (Math.random() * mots.length);
 		String randomWord = mots[randomIndex];
-		System.out.println("Mot n° "+randomIndex);
-		System.out.println(randomWord);
+		return randomWord;
 	}
 	public mot() {}
 }
