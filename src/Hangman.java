@@ -18,19 +18,19 @@ public class Hangman {
 	public String toString() {
 		return this.WordToFind + ", " + this.CurrentWord + ", " + this.IsWordFind;
 	}
-	public void Wrongletter(int Lives) {
+	public void Wrongletter() {
 		System.out.println(Lives);
 		System.out.println("Wrong letter! You lost 1 life");
 		Lives-=1;
 		System.out.println(Lives);
 	}
-	public void Wrongword(int Lives) {
+	public void Wrongword() {
 		System.out.println(Lives);
 		System.out.println("Wrong letter! You lost 1 life");
 		Lives-=2;
 		System.out.println(Lives);
 	}
-	public void GameOver(int Lives) {
+	public void GameOver() {
 		System.out.println(Lives);
 		System.out.println("Game over");
 		System.exit(0);
