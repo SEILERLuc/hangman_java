@@ -35,4 +35,14 @@ public class Hangman {
 		System.out.println("Game over");
 		System.exit(0);
 	}
+	
+	public boolean isInside(String letter) {
+		if (this.WordToFind.contains(letter)) {
+			System.out.println("La lettre choisie n'est pas dans le mot");
+			return true;
+		}
+		System.out.println("La lettre choise est dans le mot");
+		return false;
+	}
+	
 }
