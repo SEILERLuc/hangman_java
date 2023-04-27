@@ -6,7 +6,7 @@ public class Main {
 		mot word=new mot();
 		word.ChooseRandomWord();
 		System.out.println("HANGMAN en java");
-		Hangman hangman = new Hangman("HELLOWORLD");
+		Hangman hangman = new Hangman();
 		System.out.println(hangman.toString());
 	}
 }

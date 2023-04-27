@@ -5,10 +5,11 @@ public class Hangman {
 	private String CurrentWord;
 	private boolean IsWordFind;
 	private int Lives=10;
-	public Hangman(String wordToFind) {
-		this.WordToFind = wordToFind;
+	mot wordToFind=new mot();
+	public Hangman() {
+		this.WordToFind = wordToFind.ChooseRandomWord();
 		this.CurrentWord = "";
-		for (int i = 0; i < wordToFind.length(); i++) {
+		for (int i = 0; i < WordToFind.toString().length(); i++) {
 			this.CurrentWord += "-";
 		}
 		this.IsWordFind = false;
