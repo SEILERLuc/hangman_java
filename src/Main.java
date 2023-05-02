@@ -4,8 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		//Choose a random word for the Hangman
-		mot word=new mot();
+		mot word = new mot();
 		word.ChooseRandomWord();
+		//word.toListOfChar();
 		System.out.println("HANGMAN en java");
 		Hangman hangman = new Hangman();
 		
@@ -48,8 +49,10 @@ public class Main {
 				} else {
 					System.out.println("La lettre choisie n'est pas dans le mot");
 				}
+				//scannerLetter.close();
 				break;
 			}
+			//scanner.close();
 		}
 		System.out.println("FIN");
 	}

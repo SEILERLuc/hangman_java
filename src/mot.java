@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class mot {
+	
 	String[] mots= {"banc",
 			"bureau",
 			"cabinet",
@@ -37,10 +40,24 @@ public class mot {
 			"recreation",
 			"rentree",
 			"toilette"};
+	
+	private List<Character> Lettres = new ArrayList<Character>();
+	
+	public mot() {}
+	
+	
 	public String ChooseRandomWord() {
 		int randomIndex = (int) (Math.random() * mots.length);
 		String randomWord = mots[randomIndex];
 		return randomWord;
 	}
-	public mot() {}
+	
+	/*public List<Character> toListOfChar() {
+		List<Character> charsList = new ArrayList<>();
+		for (char character : mot.toCharArray()) {
+			charsList.add(character);
+		}
+		return charsList;
+	}*/
+	
 }
