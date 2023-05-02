@@ -3,18 +3,64 @@ import java.util.Scanner;
 public class App {
 
 	private String name;
+	String[] wordList = {
+			"banc",
+			"bureau",
+			"cabinet",
+			"carreau",
+			"chaise",
+			"classe",
+			"cle",
+			"coin",
+			"couloir",
+			"dossier",
+			"eau",
+			"ecole",
+			"ecriture",
+			"entree",
+			"escalier",
+			"etagere",
+			"etude",
+			"exterieur",
+			"fenetre",
+			"interieur",
+			"lavabo",
+			"lecture",
+			"lit",
+			"marche",
+			"matelas",
+			"maternelle",
+			"meuble",
+			"mousse",
+			"mur",
+			"porte",
+			"portemanteau",
+			"poubelle",
+			"radiateur",
+			"rampe",
+			"recreation",
+			"rentree",
+			"toilette"
+	};
 	
 	public App(String name) {
 		this.name = name;
 	}
 	
+	public String getRandomWord() {
+		/*System.out.println("Mot au hasard");
+		return "RANDOM MOT";*/
+		int randomIndex = (int) (Math.random() * wordList.length);
+		String randomWord = wordList[randomIndex];
+		return randomWord;
+	}
+
 	public void Menu() {
-	//Choose a random word for the Hangman
-			mot word = new mot();
-			word.ChooseRandomWord();
+			//mot word = new mot();
+			//word.ChooseRandomWord();
 			//word.toListOfChar();
 			System.out.println("HANGMAN en java");
-			Hangman hangman = new Hangman();
+			Hangman hangman = new Hangman(this.getRandomWord());
 			
 			//Create the Player
 			Player player = new Player();
