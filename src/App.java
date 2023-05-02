@@ -64,7 +64,8 @@ public class App {
 					//scanner.close();
 			
 					Scanner scannerWord = new Scanner(System.in);
-					System.out.print("Entrez votre choix : ");
+					System.out.println("Entrez votre choix : ");
+					System.out.println(hangman.wordToFind);
 					String userWord = scannerWord.nextLine();
 					System.out.println("Vous avez entré : " + userWord);
 					player.setLetter(userWord);

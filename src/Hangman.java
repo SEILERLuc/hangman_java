@@ -28,7 +28,7 @@ public class Hangman {
 	}
 	public void Wrongword() {
 		System.out.println(Lives);
-		System.out.println("Wrong letter! You lost 2 lifes");
+		System.out.println("Wrong word! You lost 2 lifes");
 		Lives-=2;
 		System.out.println(Lives);
 	}
@@ -49,6 +49,6 @@ public class Hangman {
 		System.out.println("The current word is: " + this.CurrentWord);
 	}
 	public void Win() {
-		System.out.println("Félicitations! Le mot était bien "+this.CurrentWord);
+		System.out.println("Félicitations! Le mot était bien "+this.WordToFind);
 	}
 }
