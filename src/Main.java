@@ -26,9 +26,10 @@ public class Main {
 		/* --- MENU --- */
 		while (true) {
 			System.out.println("Voici la liste des options :");
-			System.out.println("1- Saisir une lettre 1");
-			System.out.println("2- Quitter sans sauvegarder");
-			System.out.println("3- Quitter en sauvegardant");
+			System.out.println("1- Saisir une lettre (-1 si échec)");
+			System.out.println("2- Saisir un mot (-2 si échec)");
+			System.out.println("3- Quitter sans sauvegarder");
+			System.out.println("4- Quitter en sauvegardant");
 			
 			Scanner scanner = new Scanner(System.in);
 			System.out.print("Entrez votre choix : ");
@@ -48,6 +49,26 @@ public class Main {
 					System.out.println("La lettre choisie est dans le mot");
 				} else {
 					System.out.println("La lettre choisie n'est pas dans le mot");
+					hangman.Wrongletter();
+				}
+				//scannerLetter.close();
+				break;
+			}
+			if (userChoice.equals("2")) {
+				//scanner.close();
+		
+				Scanner scannerWord = new Scanner(System.in);
+				System.out.print("Entrez votre choix : ");
+				String userWord = scannerWord.nextLine();
+				System.out.println("Vous avez entré : " + userWord);
+				player.setLetter(userWord);
+				System.out.println("Word of the player " + player.getWord());
+				if (userWord.equals(hangman.wordToFind)) {
+					System.out.println("Le mot choisi est  correct");
+					hangman.Win();
+				} else {
+					System.out.println("Le mot choisi est incorrect");
+					hangman.Wrongword();
 				}
 				//scannerLetter.close();
 				break;

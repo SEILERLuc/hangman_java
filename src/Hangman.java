@@ -48,5 +48,7 @@ public class Hangman {
 	public void displayWord() {
 		System.out.println("The current word is: " + this.CurrentWord);
 	}
-	
+	public void Win() {
+		System.out.println("Félicitations! Le mot était bien "+this.CurrentWord);
+	}
 }
