@@ -7,8 +7,8 @@ public class Hangman {
 	private int Lives=10;
 	mot wordToFind=new mot();
 	
-	public Hangman() {
-		this.WordToFind = wordToFind.ChooseRandomWord();
+	public Hangman(String wordToFind) {
+		this.WordToFind = wordToFind;
 		this.CurrentWord = "";
 		for (int i = 0; i < WordToFind.toString().length(); i++) {
 			this.CurrentWord += "-";
