@@ -111,12 +111,12 @@ public class App {
 			
 					Scanner scannerWord = new Scanner(System.in);
 					System.out.println("Entrez votre choix : ");
-					System.out.println(hangman.wordToFind);
+					System.out.println(hangman.getWordToFind());
 					String userWord = scannerWord.nextLine();
 					System.out.println("Vous avez entré : " + userWord);
 					player.setLetter(userWord);
 					System.out.println("Word of the player " + player.getWord());
-					if (userWord.equals(hangman.wordToFind)) {
+					if (userWord.equals(hangman.getWordToFind())) {
 						System.out.println("Le mot choisi est  correct");
 						hangman.Win();
 					} else {
