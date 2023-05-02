@@ -43,14 +43,12 @@ public class Hangman {
 	
 	public void Wrongletter() {
 		System.out.println(Lives);
-		System.out.println("Wrong letter! You lost 1 life");
 		Lives-=1;
 		System.out.println(Lives);
 	}
 	
 	public void Wrongword() {
 		System.out.println(Lives);
-		System.out.println("Wrong word! You lost 2 lifes");
 		Lives-=2;
 		System.out.println(Lives);
 	}

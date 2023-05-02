@@ -111,7 +111,6 @@ public class App {
 			
 					Scanner scannerWord = new Scanner(System.in);
 					System.out.println("Entrez votre choix : ");
-					System.out.println(hangman.getWordToFind());
 					String userWord = scannerWord.nextLine();
 					System.out.println("Vous avez entré : " + userWord);
 					player.setLetter(userWord);
