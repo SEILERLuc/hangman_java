@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
 
 	private String UserWord;
 	private String UserLetter;
+	private List<Character> wrongLetters = new ArrayList<Character>();
 	
 	public Player() {
 		this.UserWord = "";

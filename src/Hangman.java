@@ -1,27 +1,33 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Hangman {
 	
 	private String wordToFind;
-	private String currentWord;
+	private List<Character> currentWord = new ArrayList<Character>();
 	private boolean wordFind;
-	private int Lives=10;
+	private int Lives = 10;
 	
 	public Hangman(String wordToFind) {
 		this.wordToFind = wordToFind;
-		/*this.currentWord = "";
 		for (int i = 0; i < wordToFind.toString().length(); i++) {
-			this.currentWord += "-";
-		}*/
+			this.currentWord.add('-');
+		}
 		this.wordFind = false;
 	}
 	
 	@Override
 	public String toString() {
-		return this.wordToFind + ", " + this.currentWord + ", " + this.wordFind;
+		return this.wordToFind;
 	}
 	
 	public void displayWord() {
-		System.out.println("The current word is: " + this.currentWord);
+		System.out.println(this.currentWord);
+		System.out.print("The current word is : ");
+		for (char character : currentWord) {
+			System.out.print(character);
+		}
+		System.out.println("\n");
 	}
 	
 	public boolean isInside(String letter) {
