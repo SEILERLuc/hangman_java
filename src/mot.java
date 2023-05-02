@@ -3,7 +3,8 @@ import java.util.List;
 
 public class mot {
 	
-	String[] mots= {"banc",
+	String[] mots= {
+			"banc",
 			"bureau",
 			"cabinet",
 			"carreau",
@@ -39,18 +40,36 @@ public class mot {
 			"rampe",
 			"recreation",
 			"rentree",
-			"toilette"};
+			"toilette"
+	};
 	
-	private List<Character> Lettres = new ArrayList<Character>();
+	private List<Character> Letters = new ArrayList<Character>();
 	
 	public mot() {}
-	
 	
 	public String ChooseRandomWord() {
 		int randomIndex = (int) (Math.random() * mots.length);
 		String randomWord = mots[randomIndex];
 		return randomWord;
 	}
+	
+	public void stringToCharArray(String mot) {
+		for (char ch : mot.toCharArray()) {
+			Letters.add(ch);
+		}
+	}
+	
+	public List<Character> getWord() {
+		return this.Letters;
+	}
+	
+	public void display() {
+		for (char ch : Letters) {
+			System.out.print(ch);
+		}
+		System.out.print("\n");
+	}
+	
 	
 	/*public List<Character> toListOfChar() {
 		List<Character> charsList = new ArrayList<>();
