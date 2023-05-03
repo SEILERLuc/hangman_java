@@ -3,13 +3,14 @@ import java.util.List;
 
 public class Player {
 
+	private String name;
 	private String UserWord;
 	private String UserLetter;
 	private List<Character> wrongLetters = new ArrayList<Character>();
+	private List<String> wrongWords = new ArrayList<String>();
 	
-	public Player() {
-		this.UserWord = "";
-		this.UserLetter = "";
+	public Player(String name) {
+		this.name = name;
 	}
 	
 	public String getWord() {
@@ -26,6 +27,11 @@ public class Player {
 
 	public void setWord(String word) {
 		this.UserWord = word;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
 	}
 	
 }

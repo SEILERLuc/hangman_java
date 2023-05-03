@@ -66,7 +66,7 @@ public class App {
 			Hangman hangman = new Hangman(this.getRandomWord());
 			
 			//Create the Player
-			Player player = new Player();
+			Player player = new Player("Test");
 			
 			//Create a Hangman
 			System.out.println(hangman.toString());
@@ -133,4 +133,24 @@ public class App {
 			System.out.println("FIN");
 	}
 	
+	public void generateMenu() {
+		Menu menu = new Menu("MyMenu");
+		menu.addItemToList(new MenuItem("Option 1", this::helloWorld));
+		menu.addItemToList(new MenuItem("Option 2", this::date));
+		menu.addItemToList(new MenuItem("Option 3", this::quit));
+		menu.displayMenu(); 
+	}
+	
+	private void helloWorld() {
+		System.out.println("Je print hello world");
+	}
+
+	private void date() {
+		System.out.println("Date du jour");
+	}
+	
+	private void quit() {
+		System.out.println("Fermeture de l'application");
+	}
+
 }
