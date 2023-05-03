@@ -56,6 +56,9 @@ public class App {
 	}
 
 	public void Menu() {
+			FileReader filereader = new FileReader("mots.txt");
+			filereader.chooseWord();
+			
 			//mot word = new mot();
 			//word.ChooseRandomWord();
 			//word.toListOfChar();

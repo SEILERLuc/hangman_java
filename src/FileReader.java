@@ -1,33 +1,38 @@
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class FileReader {
 	
-	public void ChooseWord() {
-		try
-		{
-			// Le fichier d'entrée
-			File file = new File("file.txt");    
-			// Créer l'objet File Reader
-			FileReader fr = new FileReader(file);  
-			// Créer l'objet BufferedReader  			
-			BufferedReader br = new BufferedReader(fr);  
-			StringBuffer sb = new StringBuffer();    
-			String line;
-			while((line = br.readLine()) != null)
-			{
-				// ajoute la ligne au buffer
-				sb.append(line);      
-				sb.append("\n");     
-			}
-			fr.close();    
-			System.out.println("Contenu du fichier: ");
-			System.out.println(sb.toString());  
+	String filename;
+	
+	public FileReader(String filename) {
+		this.filename = filename;
+	}
+	
+	public void chooseWord() {
+		try {
+		    File myObj = new File(this.filename);
+		    Scanner myReader = new Scanner(myObj);
+		    
+		    if (myObj.exists()) {
+		        System.out.println("File name: " + myObj.getName());
+		        System.out.println("Absolute path: " + myObj.getAbsolutePath());
+		        System.out.println("Writeable: " + myObj.canWrite());
+		        System.out.println("Readable " + myObj.canRead());
+		        System.out.println("File size in bytes " + myObj.length());
+		    } else {
+		        System.out.println("The file does not exist.");
+		    }
+		    
+		    while (myReader.hasNextLine()) {
+		    	String data = myReader.nextLine();
+		    	System.out.println(data);
+		    }
+		    myReader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("An error occurred.");
+		    e.printStackTrace();
 		}
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}	
 	}
 }
