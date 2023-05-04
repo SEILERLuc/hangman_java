@@ -13,19 +13,34 @@ public class Menu {
 	}
 	
 	public void displayMenu() {
-		if (optionsList == null) {
-			System.out.println("Menu vide");
-		} else {
-			System.out.println("Choose an options :");
-			for (int i = 0; i < optionsList.size(); i++) {
-				System.out.println(i+1 + " " + optionsList.get(i).toString());
+		
+		boolean end = false;
+		scanner = new Scanner(System.in);
+		do {
+			System.out.println(this.name);
+			for(int i=0; i< optionsList.size(); i++) {
+				String line = String.format("%d - %s", i+1, optionsList.get(i).getOption());
+				System.out.println(line);
+			}			
+			System.out.print("votre choix : ");
+			try {
+				int menuChoice = scanner.nextInt();
+				scanner.nextLine();
+				if(menuChoice <= optionsList.size() && menuChoice > 0) {
+					optionsList.get(menuChoice - 1).executeFunction();
+				} else {
+					end = true;
+				}
+			} catch (Exception e) {
+				System.out.println("Saisie invalide. Choisissez un num�ro.");
 			}
-			scanner = new Scanner(System.in);
-			System.out.println("Ecrire un nombre: ");
-	        String user = scanner.nextLine();
-	        optionsList.get(1).execute();
-		}
+		} while(!end);
+		scanner.close();;
 	}
+	
+	public void executeOption(int choice) {
+        optionsList.get(choice - 1).executeFunction();
+    }
 	
 	public void addItemToList(MenuItem option) {
 		this.optionsList.add(option);

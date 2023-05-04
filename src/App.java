@@ -124,7 +124,7 @@ public class App {
 	}
 	
 	public void generateMenu() {
-		Menu menu = new Menu("MyMenu");
+		Menu menu = new Menu("HANGMAN");
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
 		menu.addItemToList(new MenuItem("Quitter", this::quitApp));
@@ -132,15 +132,15 @@ public class App {
 	}
 	
 	private void userLetterChoice() {
-		System.out.println("Je print hello world");
+		System.out.println("J'ai choisi une lettre");
 	}
 
 	private void userWordChoice() {
-		System.out.println("Date du jour");
+		System.out.println("J'ai choisi un mot");
 	}
 	
 	private void quitApp() {
-		System.out.println("Fermeture de l'application");
+		System.out.println("Je quitte l'application");
 	}
 
 }
