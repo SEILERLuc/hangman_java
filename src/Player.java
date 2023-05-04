@@ -6,8 +6,7 @@ public class Player {
 	private String name;
 	private String UserWord;
 	private String UserLetter;
-	private List<Character> wrongLetters = new ArrayList<Character>();
-	private List<String> wrongWords = new ArrayList<String>();
+	private List<Character> wrongChoices = new ArrayList<Character>();
 	
 	public Player(String name) {
 		this.name = name;

@@ -56,100 +56,90 @@ public class App {
 	}
 
 	public void Menu() {
-			FileReader filereader = new FileReader("mots.txt");
-			filereader.chooseWord();
-			
-			//mot word = new mot();
-			//word.ChooseRandomWord();
-			//word.toListOfChar();
-			System.out.println("HANGMAN en java");
-			Hangman hangman = new Hangman(this.getRandomWord());
-			
-			//Create the Player
-			Player player = new Player("Test");
-			
-			//Create a Hangman
-			System.out.println(hangman.toString());
-			hangman.displayWord();
-			
-			// Faire menu
-			// afficher le mot en tirets
-			// demander à l'utilisateur de saisir une entrée
-			// se servir des autres classes pour détecter la présence du mot/de la lettre
-			// réafficher le mot en tirets mis à jour
-			
-			/* --- MENU --- */
-			while (true) {
-				System.out.println("Voici la liste des options :");
-				System.out.println("1- Saisir une lettre (-1 si échec)");
-				System.out.println("2- Saisir un mot (-2 si échec)");
-				System.out.println("3- Quitter sans sauvegarder");
-				System.out.println("4- Quitter en sauvegardant");
+		// Choisir un mot au hasard
+		FileManager filemanager = new FileManager("mots.txt");
+		filemanager.chooseWord();
+
+		// Player 
+		Player player = new Player("Test");
+		
+		// Hangman
+		Hangman hangman = new Hangman(this.getRandomWord());
+		System.out.println(hangman.toString());
+		hangman.displayWord();
+		
+		/* --- MENU --- */
+		while (true) {
+			System.out.println("Voici la liste des options :");
+			System.out.println("1- Saisir une lettre (-1 si échec)");
+			System.out.println("2- Saisir un mot (-2 si échec)");
+			System.out.println("3- Quitter sans sauvegarder");
+			System.out.println("4- Quitter en sauvegardant");
 				
-				Scanner scanner = new Scanner(System.in);
-				System.out.print("Entrez votre choix : ");
-				String userChoice = scanner.nextLine();
-				System.out.println("Vous avez entré : " + userChoice);
-				
-				if (userChoice.equals("1")) {
-					//scanner.close();
+			Scanner scanner = new Scanner(System.in);
+			System.out.print("Entrez votre choix : ");
+			String userChoice = scanner.nextLine();
+			System.out.println("Vous avez entré : " + userChoice);
 			
-					Scanner scannerLetter = new Scanner(System.in);
-					System.out.print("Entrez votre choix : ");
-					String userLetter = scannerLetter.nextLine();
-					System.out.println("Vous avez entré : " + userLetter);
-					player.setLetter(userLetter);
-					System.out.println("Letter of the player " + player.getLetter());
-					if (hangman.isInside(userLetter)) {
-						System.out.println("La lettre choisie est dans le mot");
-					} else {
-						System.out.println("La lettre choisie n'est pas dans le mot");
-						hangman.Wrongletter();
-					}
-					//scannerLetter.close();
-					break;
-				}
-				if (userChoice.equals("2")) {
-					//scanner.close();
-			
-					Scanner scannerWord = new Scanner(System.in);
-					System.out.println("Entrez votre choix : ");
-					String userWord = scannerWord.nextLine();
-					System.out.println("Vous avez entré : " + userWord);
-					player.setLetter(userWord);
-					System.out.println("Word of the player " + player.getWord());
-					if (userWord.equals(hangman.getWordToFind())) {
-						System.out.println("Le mot choisi est  correct");
-						hangman.Win();
-					} else {
-						System.out.println("Le mot choisi est incorrect");
-						hangman.Wrongword();
-					}
-					//scannerLetter.close();
-					break;
-				}
+			if (userChoice.equals("1")) {
 				//scanner.close();
+			
+				Scanner scannerLetter = new Scanner(System.in);
+				System.out.print("Entrez votre choix : ");
+				String userLetter = scannerLetter.nextLine();
+				System.out.println("Vous avez entré : " + userLetter);
+				player.setLetter(userLetter);
+				System.out.println("Letter of the player " + player.getLetter());
+				if (hangman.isInside(userLetter)) {
+					System.out.println("La lettre choisie est dans le mot");
+				} else {
+					System.out.println("La lettre choisie n'est pas dans le mot");
+					hangman.Wrongletter();
+				}
+				//scannerLetter.close();
+				break;
 			}
-			System.out.println("FIN");
+			if (userChoice.equals("2")) {
+				//scanner.close();
+			
+				Scanner scannerWord = new Scanner(System.in);
+				System.out.println("Entrez votre choix : ");
+				String userWord = scannerWord.nextLine();
+				System.out.println("Vous avez entré : " + userWord);
+				player.setLetter(userWord);
+				System.out.println("Word of the player " + player.getWord());
+				if (userWord.equals(hangman.getWordToFind())) {
+					System.out.println("Le mot choisi est  correct");
+					hangman.Win();
+				} else {
+					System.out.println("Le mot choisi est incorrect");
+					hangman.Wrongword();
+				}
+				//scannerLetter.close();
+				break;
+			}
+			//scanner.close();
+		}
+		System.out.println("FIN");
 	}
 	
 	public void generateMenu() {
 		Menu menu = new Menu("MyMenu");
-		menu.addItemToList(new MenuItem("Option 1", this::helloWorld));
-		menu.addItemToList(new MenuItem("Option 2", this::date));
-		menu.addItemToList(new MenuItem("Option 3", this::quit));
+		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
+		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
+		menu.addItemToList(new MenuItem("Quitter", this::quitApp));
 		menu.displayMenu(); 
 	}
 	
-	private void helloWorld() {
+	private void userLetterChoice() {
 		System.out.println("Je print hello world");
 	}
 
-	private void date() {
+	private void userWordChoice() {
 		System.out.println("Date du jour");
 	}
 	
-	private void quit() {
+	private void quitApp() {
 		System.out.println("Fermeture de l'application");
 	}
 

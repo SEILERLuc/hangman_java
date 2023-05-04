@@ -2,12 +2,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FileReader {
+public class FileManager {
 	
 	private String filename;
 	Scanner myReader;
 	
-	public FileReader(String filename) {
+	public FileManager(String filename) {
 		this.filename = filename;
 	}
 	
@@ -19,8 +19,6 @@ public class FileReader {
 		    if (myFile.exists()) {
 		        System.out.println("File name: " + myFile.getName());
 		        System.out.println("Absolute path: " + myFile.getAbsolutePath());
-		        System.out.println("Writeable: " + myFile.canWrite());
-		        System.out.println("Readable " + myFile.canRead());
 		        System.out.println("File size in bytes " + myFile.length());
 		    } else {
 		        System.out.println("The file does not exist.");
