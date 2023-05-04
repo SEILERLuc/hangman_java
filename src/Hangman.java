@@ -6,7 +6,7 @@ public class Hangman {
 	private String wordToFind;
 	private List<Character> currentWord = new ArrayList<Character>();
 	private boolean wordFind;
-	private int Lives = 10;
+	private int lives = 10;
 	
 	public Hangman(String wordToFind) {
 		this.wordToFind = wordToFind;
@@ -16,8 +16,8 @@ public class Hangman {
 		this.wordFind = false;
 	}
 	
-	public int GetLives() {
-		return Lives;
+	public int getLives() {
+		return this.lives;
 	}
 	
 	@Override
@@ -46,19 +46,19 @@ public class Hangman {
 	}
 	
 	public void Wrongletter() {
-		System.out.println(Lives);
-		Lives-=1;
-		System.out.println(Lives);
+		System.out.println(lives);
+		lives -= 1;
+		System.out.println(lives);
 	}
 	
 	public void Wrongword() {
-		System.out.println(Lives);
-		Lives-=2;
-		System.out.println(Lives);
+		System.out.println(lives);
+		lives -= 2;
+		System.out.println(lives);
 	}
 	
 	public void GameOver() {
-		System.out.println(Lives);
+		System.out.println(lives);
 		System.out.println("Game over");
 		System.exit(0);
 	}

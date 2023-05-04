@@ -67,7 +67,7 @@ public class App {
 		
 		/* --- MENU --- */
 		while (true) {
-			if(hangman.GetLives()>0) {
+			if(hangman.getLives()>0) {
 				System.out.println("Voici la liste des options :");
 				System.out.println("1- Saisir une lettre (-1 si échec)");
 				System.out.println("2- Saisir un mot (-2 si échec)");
@@ -118,7 +118,7 @@ public class App {
 				
 				
 				}
-		if(hangman.GetLives()==0) {
+		if(hangman.getLives()==0) {
 			hangman.GameOver();
 		}
 		}
