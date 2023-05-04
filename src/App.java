@@ -68,7 +68,8 @@ public class App {
 		
 		/* --- MENU --- */
 		while (true) {
-			if(hangman.GetLives()>0) {
+			if(hangman.getLives()>0) {
+				hangman.displayCurrentWord();
 				System.out.println("Voici la liste des options :");
 				System.out.println("1- Saisir une lettre (-1 si échec)");
 				System.out.println("2- Saisir un mot (-2 si échec)");
@@ -91,6 +92,7 @@ public class App {
 					System.out.println("Letter of the player " + player.getLetter());
 					if (hangman.isInside(userLetter)) {
 						System.out.println("La lettre choisie est dans le mot");
+						hangman.updateCurrentWord(userLetter.charAt(0));
 					} else {
 						System.out.println("La lettre choisie n'est pas dans le mot");
 						hangman.Wrongletter();
@@ -121,7 +123,7 @@ public class App {
 				
 				
 				}
-		if(hangman.GetLives()==0) {
+		if(hangman.getLives()==0) {
 			hangman.GameOver();
 		}
 		}
@@ -130,23 +132,24 @@ public class App {
 	
 	
 	public void generateMenu() {
-		Menu menu = new Menu("MyMenu");
+		Menu menu = new Menu("=====Hangman=====");
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
-		menu.addItemToList(new MenuItem("Quitter", this::quitApp));
+		menu.addItemToList(new MenuItem("Quitter", this::quit));
 		menu.displayMenu(); 
 	}
 	
 	private void userLetterChoice() {
-		System.out.println("Je print hello world");
+		System.out.println("J'ai choisi une lettre");
 	}
 
 	private void userWordChoice() {
-		System.out.println("Date du jour");
+		System.out.println("J'ai choisi un mot");
 	}
 	
-	private void quitApp() {
-		System.out.println("Fermeture de l'application");
+	private void quit() {
+		System.out.println("Je quitte l'application");
+		System.exit(0);
 	}
 
 }

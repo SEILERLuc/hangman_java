@@ -13,7 +13,7 @@ public class MenuItem {
 	}
 	
 	public String getOption() {
-		return option;
+		return this.option;
 	}	
 	
 	public void setDescription(Runnable action) {
@@ -24,10 +24,12 @@ public class MenuItem {
 	public String toString() {
 		return "Name --> " + this.option + "; Description --> " + this.action;
 	}
-	
-	public void execute() {
-		System.out.println("Execute : " + this.option);
-		this.action.run();
+
+	public void executeFunction(){
+	    if(this.action != null){
+	       	System.out.println("menu function");
+	        this.action.run();
+	    }
 	}
 	
 }

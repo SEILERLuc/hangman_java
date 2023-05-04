@@ -2,7 +2,9 @@
 public class Main {
 
 	public static void main(String[] args) {
-		App app = new App("Hangman");
+		App app = new App("=====Hangman=====");
+		//app.generateMenu();
+		// Test menu dynamique
 		app.Menu();
 		
 	}

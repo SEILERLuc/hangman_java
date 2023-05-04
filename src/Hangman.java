@@ -6,45 +6,45 @@ public class Hangman {
 	private String wordToFind;
 	private List<Character> currentWord = new ArrayList<Character>();
 	private boolean wordFind;
-	private int Lives = 10;
+	private int lives = 10;
 	
 	public Hangman(String wordToFind) {
 		this.wordToFind = wordToFind;
-		for (int i = 0; i < wordToFind.toString().length(); i++) {
+		for (int i = 0; i < wordToFind.length(); i++) {
 			this.currentWord.add('-');
 		}
 		this.wordFind = false;
 	}
 	
-	public int GetLives() {
-		return Lives;
+	public int getLives() {
+		return this.lives;
 	}
 	public void ShowSprites() {
-		if (GetLives()==1){
+		if (lives==1){
 			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/    |\n=======");
 		}
-		if (GetLives()==2){
+		if (lives==2){
 			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n     |\n=======");
 		}
-		if (GetLives()==3){
+		if (lives==3){
 			System.out.println(" +---+\n |   |\n O   |\n/|   |\n     |\n=======");
 		}
-		if (GetLives()==4){
+		if (lives==4){
 			System.out.println(" +---+\n |   |\n O   |\n |   |\n     |\n=======");
 		}
-		if (GetLives()==5){
+		if (lives==5){
 			System.out.println(" +---+\n |   |\n O   |\n     |\n     |\n=======");
 		}
-		if (GetLives()==6){
+		if (lives==6){
 			System.out.println(" +---+\n |   |\n     |\n     |\n     |\n=======");
 		}
-		if (GetLives()==7){
+		if (lives==7){
 			System.out.println(" +---+\n     |\n     |\n     |\n     |\n=======");
 		}
-		if (GetLives()==8){
+		if (lives==8){
 			System.out.println("      \n     |\n     |\n     |\n     |\n=======");
 		}
-		if (GetLives()==9){
+		if (lives==9){
 			System.out.println("      \n      \n      \n      \n      \n=======");
 		}
 	}
@@ -53,7 +53,7 @@ public class Hangman {
 		return this.wordToFind;
 	}
 	
-	public void displayWord() {
+	public void displayCurrentWord() {
 		System.out.println(this.currentWord);
 		System.out.print("The current word is : ");
 		for (char character : currentWord) {
@@ -69,19 +69,28 @@ public class Hangman {
 		return false;
 	}
 	
+	public void updateCurrentWord(char letter) {
+		for (int i = 0; i < this.wordToFind.length(); i++) {
+			if (this.wordToFind.charAt(i) == letter) {
+				this.currentWord.set(i, letter);
+			}
+		}
+	}
+	
 	public String getWordToFind() {
 		return this.wordToFind;
 	}
 	
 	public void Wrongletter() {
-		Lives-=1;
+		lives-=1;
 	}
 	
 	public void Wrongword() {
-		Lives-=2;
+		lives-=2;
 	}
 	
 	public void GameOver() {
+		System.out.println(lives);
 		System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/ \\  |\n=======");
 		System.out.println("Game over");
 		System.exit(0);
