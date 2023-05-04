@@ -19,7 +19,35 @@ public class Hangman {
 	public int GetLives() {
 		return Lives;
 	}
-	
+	public void ShowSprites() {
+		if (GetLives()==1){
+			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/    |\n=======");
+		}
+		if (GetLives()==2){
+			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n     |\n=======");
+		}
+		if (GetLives()==3){
+			System.out.println(" +---+\n |   |\n O   |\n/|   |\n     |\n=======");
+		}
+		if (GetLives()==4){
+			System.out.println(" +---+\n |   |\n O   |\n |   |\n     |\n=======");
+		}
+		if (GetLives()==5){
+			System.out.println(" +---+\n |   |\n O   |\n     |\n     |\n=======");
+		}
+		if (GetLives()==6){
+			System.out.println(" +---+\n |   |\n     |\n     |\n     |\n=======");
+		}
+		if (GetLives()==7){
+			System.out.println(" +---+\n     |\n     |\n     |\n     |\n=======");
+		}
+		if (GetLives()==8){
+			System.out.println("      \n     |\n     |\n     |\n     |\n=======");
+		}
+		if (GetLives()==9){
+			System.out.println("      \n      \n      \n      \n      \n=======");
+		}
+	}
 	@Override
 	public String toString() {
 		return this.wordToFind;
@@ -46,19 +74,15 @@ public class Hangman {
 	}
 	
 	public void Wrongletter() {
-		System.out.println(Lives);
 		Lives-=1;
-		System.out.println(Lives);
 	}
 	
 	public void Wrongword() {
-		System.out.println(Lives);
 		Lives-=2;
-		System.out.println(Lives);
 	}
 	
 	public void GameOver() {
-		System.out.println(Lives);
+		System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/ \\  |\n=======");
 		System.out.println("Game over");
 		System.exit(0);
 	}

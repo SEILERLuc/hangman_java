@@ -55,9 +55,10 @@ public class App {
 	}
 
 	public void Menu() {
+		
 		// Choisir un mot au hasard
-		FileManager filemanager = new FileManager("mots.txt");
-		filemanager.chooseWord();
+		//FileManager filemanager = new FileManager("mots.txt");
+		//filemanager.chooseWord();
 
 		// Player 
 		Player player = new Player("Test");
@@ -93,6 +94,7 @@ public class App {
 					} else {
 						System.out.println("La lettre choisie n'est pas dans le mot");
 						hangman.Wrongletter();
+						hangman.ShowSprites();
 					}
 					//scannerLetter.close();
 				}
@@ -111,6 +113,7 @@ public class App {
 					} else {
 						System.out.println("Le mot choisi est incorrect");
 						hangman.Wrongword();
+						hangman.ShowSprites();
 					}
 					//scannerLetter.close();
 				}
