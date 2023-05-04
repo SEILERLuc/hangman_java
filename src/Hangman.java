@@ -16,6 +16,10 @@ public class Hangman {
 		this.wordFind = false;
 	}
 	
+	public int GetLives() {
+		return Lives;
+	}
+	
 	@Override
 	public String toString() {
 		return this.wordToFind;

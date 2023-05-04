@@ -6,5 +6,6 @@ public class Main {
 		//app.generateMenu();
 		// Test menu dynamique
 		app.Menu();
+		
 	}
 }
