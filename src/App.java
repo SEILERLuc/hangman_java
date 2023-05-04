@@ -95,6 +95,8 @@ public class App {
 					} else {
 						System.out.println("La lettre choisie n'est pas dans le mot");
 						hangman.Wrongletter();
+						player.addToWrongChoices(userLetter.charAt(0));
+						player.getWrongChoices();
 					}
 					//scannerLetter.close();
 				}
