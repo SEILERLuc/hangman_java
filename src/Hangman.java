@@ -10,7 +10,7 @@ public class Hangman {
 	
 	public Hangman(String wordToFind) {
 		this.wordToFind = wordToFind;
-		for (int i = 0; i < wordToFind.toString().length(); i++) {
+		for (int i = 0; i < wordToFind.length(); i++) {
 			this.currentWord.add('-');
 		}
 		this.wordFind = false;
@@ -25,7 +25,7 @@ public class Hangman {
 		return this.wordToFind;
 	}
 	
-	public void displayWord() {
+	public void displayCurrentWord() {
 		System.out.println(this.currentWord);
 		System.out.print("The current word is : ");
 		for (char character : currentWord) {
@@ -39,6 +39,14 @@ public class Hangman {
 			return true;
 		}
 		return false;
+	}
+	
+	public void updateCurrentWord(char letter) {
+		for (int i = 0; i < this.wordToFind.length(); i++) {
+			if (this.wordToFind.charAt(i) == letter) {
+				this.currentWord.set(i, letter);
+			}
+		}
 	}
 	
 	public String getWordToFind() {
