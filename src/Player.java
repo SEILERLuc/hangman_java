@@ -30,7 +30,7 @@ public class Player {
 	
 	@Override
 	public String toString() {
-		return this.name;
+		return "Player is : " + this.name + "Wrong choices :  " + this.wrongChoices;
 	}
 	
 	public List<Character> getWrongChoices() {

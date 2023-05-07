@@ -69,6 +69,13 @@ public class Hangman {
 		return false;
 	}
 	
+	public boolean isWordToFind(String word) {
+		if (this.wordToFind.equals(word)) {
+			return true;
+		}
+		return false;
+	}
+	
 	public void updateCurrentWord(char letter) {
 		for (int i = 0; i < this.wordToFind.length(); i++) {
 			if (this.wordToFind.charAt(i) == letter) {
@@ -96,7 +103,7 @@ public class Hangman {
 		System.exit(0);
 	}
 			
-	public void Win() {
+	public void win() {
 		System.out.println("Félicitations! Le mot était bien "+this.wordToFind);
 	}
 }

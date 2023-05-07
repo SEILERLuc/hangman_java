@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class App {
 	private String name;
+	Scanner scanner = new Scanner(System.in);
 	String[] wordList = {
 			"banc",
 			"bureau",
@@ -41,6 +42,11 @@ public class App {
 			"rentree",
 			"toilette"
 	};
+	// Player 
+	Player player = new Player("Test");
+	// Hangman
+	FileManager fileManager = new FileManager("mots.txt");
+	Hangman hangman = new Hangman(this.getRandomWord());
 	
 	public App(String name) {
 		this.name = name;
@@ -61,10 +67,10 @@ public class App {
 		//filemanager.chooseWord();
 
 		// Player 
-		Player player = new Player("Test");
+		//Player player = new Player("Test");
 		
 		// Hangman
-		Hangman hangman = new Hangman(this.getRandomWord());
+		//Hangman hangman = new Hangman(this.getRandomWord());
 		
 		/* --- MENU --- */
 		while (true) {
@@ -84,7 +90,7 @@ public class App {
 				if (userChoice.equals("1")) {
 					//scanner.close();
 				
-					Scanner scannerLetter = new Scanner(System.in);
+					/*Scanner scannerLetter = new Scanner(System.in);
 					System.out.print("Entrez votre choix : ");
 					String userLetter = scannerLetter.nextLine();
 					System.out.println("Vous avez entré : " + userLetter);
@@ -100,7 +106,7 @@ public class App {
 						player.getWrongChoices();
 						hangman.ShowSprites();
 
-					}
+					}*/
 					//scannerLetter.close();
 				}
 				if (userChoice.equals("2")) {
@@ -114,7 +120,7 @@ public class App {
 					System.out.println("Word of the player " + player.getWord());
 					if (userWord.equals(hangman.getWordToFind())) {
 						System.out.println("Le mot choisi est  correct");
-						hangman.Win();
+						hangman.win();
 					} else {
 						System.out.println("Le mot choisi est incorrect");
 						hangman.Wrongword();
@@ -135,6 +141,7 @@ public class App {
 	
 	
 	public void generateMenu() {
+		fileManager.readAndChooseWord();
 		Menu menu = new Menu("=====Hangman=====");
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
@@ -143,15 +150,70 @@ public class App {
 	}
 	
 	private void userLetterChoice() {
-		System.out.println("J'ai choisi une lettre");
+		System.out.println("J'ai choisi de mettre une lettre");
+		
+		/*Scanner scannerLetter = new Scanner(System.in);
+		System.out.print("Entrez votre choix : ");
+		String userLetter = scannerLetter.nextLine();
+		System.out.println("Vous avez entré : " + userLetter);
+		player.setLetter(userLetter);
+		
+		if (hangman.isInside(userLetter)) {
+			System.out.println("La lettre choisie est dans le mot");
+			hangman.updateCurrentWord(userLetter.charAt(0));
+		} else {
+			System.out.println("La lettre choisie n'est pas dans le mot");
+			hangman.Wrongletter();
+			player.addToWrongChoices(userLetter.charAt(0));
+			player.getWrongChoices();
+			hangman.ShowSprites();
+		}*/
+
+		hangman.displayCurrentWord();
+		System.out.print("Votre lettre : ");
+		try {
+			String userLetter = scanner.nextLine();
+			if (hangman.isInside(userLetter)) {
+				System.out.println("La lettre choisie est dans le mot");
+				hangman.updateCurrentWord(userLetter.charAt(0)); 
+			} else {
+				System.out.println("La lettre n'est pas dans le mot");
+				hangman.Wrongletter();
+				player.addToWrongChoices(userLetter.charAt(0));
+				player.getWrongChoices();
+				hangman.ShowSprites();
+			}
+		} catch (Exception e) {
+			System.out.println("Saisie invalide.");
+		}
+		hangman.displayCurrentWord();
 	}
 
 	private void userWordChoice() {
-		System.out.println("J'ai choisi un mot");
+		System.out.println("J'ai choisi de mettre un mot");
+		
+		hangman.displayCurrentWord();
+		System.out.print("Votre mot : ");
+		try {
+			String userWord = scanner.nextLine();
+			if (hangman.isWordToFind(userWord)) {
+				System.out.println("Vous avez choisi le bon mot");
+				hangman.win();
+			} else {
+				System.out.println("Ce n'est pas le bon mot");
+				hangman.Wrongletter();
+				player.addToWrongChoices(userWord.charAt(0));
+				player.getWrongChoices();
+				hangman.ShowSprites();
+			}
+		} catch (Exception e) {
+			System.out.println("Saisie invalide.");
+		}
+		hangman.displayCurrentWord();
 	}
 	
 	private void quit() {
-		System.out.println("Je quitte l'application");
+		System.out.println("Fermeture de l'application");
 		System.exit(0);
 	}
 

@@ -11,7 +11,7 @@ public class FileManager {
 		this.filename = filename;
 	}
 	
-	public void chooseWord() {
+	public void readAndChooseWord() {
 		try {
 		    File myFile = new File(this.filename);
 		    myReader = new Scanner(myFile);
@@ -29,7 +29,7 @@ public class FileManager {
 		    	System.out.println(data);
 		    }
 		} catch (FileNotFoundException e) {
-			System.out.println("An error occurred.");
+			System.out.println("File doesn't exist !");
 		    e.printStackTrace();
 		} finally {
 			myReader.close();

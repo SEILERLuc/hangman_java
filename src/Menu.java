@@ -13,7 +13,6 @@ public class Menu {
 	}
 	
 	public void displayMenu() {
-		
 		boolean end = false;
 		scanner = new Scanner(System.in);
 		do {
