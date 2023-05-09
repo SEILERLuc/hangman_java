@@ -25,35 +25,7 @@ public class Hangman {
 	public int getLives() {
 		return this.lives;
 	}
-	/*public void ShowSprites() {
-		if (lives==1){
-			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/    |\n=======");
-		}
-		if (lives==2){
-			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n     |\n=======");
-		}
-		if (lives==3){
-			System.out.println(" +---+\n |   |\n O   |\n/|   |\n     |\n=======");
-		}
-		if (lives==4){
-			System.out.println(" +---+\n |   |\n O   |\n |   |\n     |\n=======");
-		}
-		if (lives==5){
-			System.out.println(" +---+\n |   |\n O   |\n     |\n     |\n=======");
-		}
-		if (lives==6){
-			System.out.println(" +---+\n |   |\n     |\n     |\n     |\n=======");
-		}
-		if (lives==7){
-			System.out.println(" +---+\n     |\n     |\n     |\n     |\n=======");
-		}
-		if (lives==8){
-			System.out.println("      \n     |\n     |\n     |\n     |\n=======");
-		}
-		if (lives==9){
-			System.out.println("      \n      \n      \n      \n      \n=======");
-		}
-	}*/
+
 	@Override
 	public String toString() {
 		return this.wordToFind;

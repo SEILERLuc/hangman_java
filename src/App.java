@@ -26,6 +26,7 @@ public class App {
 		Menu menu = new Menu(this.name);
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
+		menu.addItemToList(new MenuItem("Ajouter un mot au fichier", this::addNewWord));
 		menu.addItemToList(new MenuItem("Quitter", this::quit));
 		menu.displayMenu(); 
 	}
@@ -86,11 +87,25 @@ public class App {
 	
 	/**
 	 * Permet à l'utilisateur d'ajouter un nouveau mot dans le fichier
-	 * @param word
 	 */
-	private void addNewWordToFile(String word) {
+	private void addNewWord() {
 		// Ajoute un mot choisi par l'utilisateur au fichier
-		System.out.println("Ajouter un mot dans le fichier");
+		System.out.println("Saisissez un mot à ajouter");
+		try {
+			String newWord = scanner.nextLine();
+			while (newWord.length() < 2 || newWord.matches("[a-zA-Z]+") == false) {
+				System.out.println("That's not a word");
+				newWord = scanner.nextLine();
+			}
+			if (fileManager.alreadyInFile(newWord)) {
+				System.out.println("Ce mot existe déjà");
+			} else {
+				fileManager.writeToFile(newWord);
+				System.out.println("Mot ajouté au fichier");
+			}
+		} catch (Exception e) {
+			System.out.println("Saisie invalide.");
+		}
 	}
 	
 	/**

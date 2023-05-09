@@ -1,9 +1,7 @@
 
 public class HangmanSprite {
 	
-	public HangmanSprite() {
-		
-	}
+	public HangmanSprite() {}
 	
 	public void showSprites(int lives) {
 		if (lives == 1) {
