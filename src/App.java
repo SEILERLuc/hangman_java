@@ -172,9 +172,9 @@ public class App {
 		hangman.displayCurrentWord();
 		System.out.print("Votre lettre : ");
 		try {
-			String userLetter = scanner.nextLine();
-			while(userLetter.length()>1) {
-				System.out.println("That's not a letter.");
+			String userLetter = scanner.nextLine();	
+			while(Character.isAlphabetic(userLetter.charAt(0))==false||userLetter.length()>1) {
+				System.out.println("That's not a letter");
 				userLetter = scanner.nextLine();
 			}
 			if (hangman.isInside(userLetter)) {
@@ -204,13 +204,7 @@ public class App {
 		System.out.print("Votre mot : ");
 		try {
 			String userWord = scanner.nextLine();
-			/*for(int i=0;i<userWord.length();i++) {
-				if((userWord.charAt(i)<'a'|| userWord.charAt(i)>'z')||(userWord.charAt(i)<'A'|| userWord.charAt(i)>'Z')) {
-					System.out.println("That's not a word");
-					userWord = scanner.nextLine();
-				}
-			}*/
-			while(userWord.length()<2) {
+			while(userWord.length()<2||userWord.matches("[a-zA-Z]+")==false) {
 				System.out.println("That's not a word");
 				userWord = scanner.nextLine();
 			}

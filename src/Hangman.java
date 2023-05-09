@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Hangman {
 	
@@ -15,7 +16,6 @@ public class Hangman {
 		}
 		this.wordFind = false;
 	}
-	
 	public int getLives() {
 		return this.lives;
 	}
