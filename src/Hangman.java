@@ -13,8 +13,16 @@ public class Hangman {
 	private String wordToFind;
 	private List<Character> currentWord = new ArrayList<Character>();
 	private boolean wordFind;
-	private int lives = 10;
-	
+	private int lives;
+	public void EasyLives() {
+		lives=10;
+	}
+	public void NormalLives() {
+		lives=5;
+	}
+	public void HardLives() {
+		lives=3;
+	}
 	public Hangman(String wordToFind) {
 		this.wordToFind = wordToFind;
 		for (int i = 0; i < wordToFind.length(); i++) {
