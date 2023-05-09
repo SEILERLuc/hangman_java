@@ -111,5 +111,6 @@ public class Hangman {
 			
 	public void win() {
 		System.out.println("Félicitations! Le mot était bien "+this.wordToFind);
+		System.exit(0);
 	}
 }
