@@ -27,7 +27,6 @@ public class MenuItem {
 
 	public void executeFunction(){
 	    if(this.action != null){
-	       	System.out.println("menu function");
 	        this.action.run();
 	    }
 	}

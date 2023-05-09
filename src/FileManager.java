@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Cette classe permet de faire la gestion de fichier :
+ * - Lire un fichier de mots et en choisir un au hasard
+ * - Ajouter un nouveau mot dans le fichier, choisi par l'utilisateur
+ * @author lucky
+ *
+ */
 public class FileManager {
 	
 	private String filename;

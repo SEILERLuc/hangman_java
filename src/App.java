@@ -18,6 +18,10 @@ public class App {
 		this.name = name;
 	}
 	
+	/**
+	 * Genère le menu principal, avec les différentes options
+	 * D'autres options peuvent être ajoutées dynamiquement
+	 */
 	public void generateMenu() {
 		Menu menu = new Menu(this.name);
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
@@ -86,11 +90,18 @@ public class App {
 		hangman.displayCurrentWord();
 	}
 	
+	/**
+	 * Permet à l'utilisateur d'ajouter un nouveau mot dans le fichier
+	 * @param word
+	 */
 	private void addNewWordToFile(String word) {
 		// Ajoute un mot choisi par l'utilisateur au fichier
 		System.out.println("Ajouter un mot dans le fichier");
 	}
 	
+	/**
+	 * Ferme l'application
+	 */
 	private void quit() {
 		System.out.println("Fermeture de l'application");
 		System.exit(0);

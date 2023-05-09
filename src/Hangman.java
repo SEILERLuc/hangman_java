@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe Hangman, qui contient le mot à trouver, ainsi que le mot actuel,
+ * qui est affiché pour le joueur
+ * @author lucky
+ *
+ */
 public class Hangman {
 	
 	private String wordToFind;

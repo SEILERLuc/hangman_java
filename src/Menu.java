@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * La class menu, qui affiche le menu principal, et execute les options choisies par le joueur
+ * @author lucky
+ *
+ */
 public class Menu {
 	
 	String name;
@@ -12,6 +17,10 @@ public class Menu {
 		this.name = name;
 	}
 	
+	/**
+	 * Parcourt la liste des options de jeu, et les affiche
+	 * Le joueur peut alors choisir une option
+	 */
 	public void displayMenu() {
 		boolean end = false;
 		scanner = new Scanner(System.in);
@@ -38,10 +47,19 @@ public class Menu {
 		scanner.close();
 	}
 	
+	/**
+	 * Execute l'option associée, choisie par le joueur
+	 * @param choice
+	 */
 	public void executeOption(int choice) {
         optionsList.get(choice - 1).executeFunction();
     }
 	
+	
+	/**
+	 * Permet d'ajouter une nouvelle option à la liste d'options
+	 * @param option
+	 */
 	public void addItemToList(MenuItem option) {
 		this.optionsList.add(option);
 	}
