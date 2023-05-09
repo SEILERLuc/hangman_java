@@ -14,6 +14,7 @@ public class Hangman {
 	private List<Character> currentWord = new ArrayList<Character>();
 	private boolean wordFind;
 	private int lives;
+	
 	public void EasyLives() {
 		lives=10;
 	}
@@ -68,6 +69,16 @@ public class Hangman {
 				this.currentWord.set(i, letter);
 			}
 		}
+	}
+	
+	public String getCurrentString() {
+		 StringBuilder sb = new StringBuilder();
+		 for (Character ch : this.currentWord) {
+	         sb.append(ch);
+	     }
+	     String currentString = sb.toString();
+	     System.out.println("String - " + currentString);	
+	     return currentString;
 	}
 	
 	public String getWordToFind() {
