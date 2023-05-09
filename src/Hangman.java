@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Classe Hangman, qui contient le mot à trouver, ainsi que le mot actuel,
+ * qui est affiché pour le joueur
+ * @author lucky
+ *
+ */
 public class Hangman {
 	
 	private String wordToFind;
@@ -19,7 +25,7 @@ public class Hangman {
 	public int getLives() {
 		return this.lives;
 	}
-	public void ShowSprites() {
+	/*public void ShowSprites() {
 		if (lives==1){
 			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/    |\n=======");
 		}
@@ -47,7 +53,7 @@ public class Hangman {
 		if (lives==9){
 			System.out.println("      \n      \n      \n      \n      \n=======");
 		}
-	}
+	}*/
 	@Override
 	public String toString() {
 		return this.wordToFind;
