@@ -177,11 +177,15 @@ public class App {
 				System.out.println("La lettre choisie est dans le mot");
 				hangman.updateCurrentWord(userLetter.charAt(0)); 
 			} else {
-				System.out.println("La lettre n'est pas dans le mot");
-				hangman.Wrongletter();
-				player.addToWrongChoices(userLetter.charAt(0));
-				player.getWrongChoices();
-				hangman.ShowSprites();
+				if (player.isAldreadyWrong(userLetter.charAt(0))) {
+					System.out.println("Vous avez déjà choisi cette lettre");
+				} else {
+					System.out.println("La lettre n'est pas dans le mot");
+					hangman.Wrongletter();
+					player.addToWrongChoices(userLetter.charAt(0));
+					player.getWrongChoices();
+					hangman.ShowSprites();
+				}
 			}
 		} catch (Exception e) {
 			System.out.println("Saisie invalide.");
@@ -210,6 +214,10 @@ public class App {
 			System.out.println("Saisie invalide.");
 		}
 		hangman.displayCurrentWord();
+	}
+	
+	private void addNewWordToFile(String word) {
+		// Ajoute un mot choisi par l'utilisateur au fichier
 	}
 	
 	private void quit() {

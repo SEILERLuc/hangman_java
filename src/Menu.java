@@ -28,13 +28,14 @@ public class Menu {
 				if(menuChoice <= optionsList.size() && menuChoice > 0) {
 					optionsList.get(menuChoice - 1).executeFunction();
 				} else {
-					end = true;
+					System.out.println("Saisie invalide. Choisissez un numero.");
 				}
 			} catch (Exception e) {
-				System.out.println("Saisie invalide. Choisissez un num�ro.");
+				System.out.println("Saisie invalide. Choisissez un numero.");
+				end = true;
 			}
 		} while(!end);
-		scanner.close();;
+		scanner.close();
 	}
 	
 	public void executeOption(int choice) {

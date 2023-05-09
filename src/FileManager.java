@@ -18,8 +18,6 @@ public class FileManager {
 		    
 		    if (myFile.exists()) {
 		        System.out.println("File name: " + myFile.getName());
-		        System.out.println("Absolute path: " + myFile.getAbsolutePath());
-		        System.out.println("File size in bytes " + myFile.length());
 		    } else {
 		        System.out.println("The file does not exist.");
 		    }
@@ -34,6 +32,10 @@ public class FileManager {
 		} finally {
 			myReader.close();
 		}
+	}
+	
+	public void writeNewWordToFile(String newWord) {
+		
 	}
 	
 }
