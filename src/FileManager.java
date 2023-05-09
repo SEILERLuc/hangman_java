@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,22 +36,22 @@ public class FileManager {
 			myReader.close();
 		}*/
 		
-		ArrayList<String> mots = new ArrayList<String>();
+		ArrayList<String> wordList = new ArrayList<String>();
         try {
-            BufferedReader lecteur = new BufferedReader(new FileReader(this.filename));
-            String ligne = lecteur.readLine();
+            BufferedReader reader = new BufferedReader(new FileReader(this.filename));
+            String ligne = reader.readLine();
             while (ligne != null) {
-                mots.add(ligne);
-                ligne = lecteur.readLine();
+            	wordList.add(ligne);
+                ligne = reader.readLine();
             }
-            lecteur.close();
+            reader.close();
         } catch (IOException e) {
             System.err.println("Erreur de lecture du fichier " + this.filename);
         }
         Random rand = new Random();
-        String motChoisi = mots.get(rand.nextInt(mots.size()));
-        System.out.println("Le mot choisi est : " + motChoisi);
-        return motChoisi;
+        String chosenWord = wordList.get(rand.nextInt(wordList.size()));
+        System.out.println("Le mot choisi est : " + chosenWord);
+        return chosenWord;
 		
 	}
 	

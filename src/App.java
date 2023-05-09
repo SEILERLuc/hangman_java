@@ -1,68 +1,25 @@
 import java.util.Scanner;
 
+/**
+ * Cette classe permet de gérer toute l'application de HANGMAN
+ * @author lucky
+ *
+ */
 public class App {
+	
 	private String name;
-	Scanner scanner = new Scanner(System.in);
-	String[] wordList = {
-			"banc",
-			"bureau",
-			"cabinet",
-			"carreau",
-			"chaise",
-			"classe",
-			"cle",
-			"coin",
-			"couloir",
-			"dossier",
-			"eau",
-			"ecole",
-			"ecriture",
-			"entree",
-			"escalier",
-			"etagere",
-			"etude",
-			"exterieur",
-			"fenetre",
-			"interieur",
-			"lavabo",
-			"lecture",
-			"lit",
-			"marche",
-			"matelas",
-			"maternelle",
-			"meuble",
-			"mousse",
-			"mur",
-			"porte",
-			"portemanteau",
-			"poubelle",
-			"radiateur",
-			"rampe",
-			"recreation",
-			"rentree",
-			"toilette"
-	};
-	// Player 
-	Player player = new Player("Test");
-	// Hangman
-	FileManager fileManager = new FileManager("mots.txt");
-	Hangman hangman = new Hangman(fileManager.readAndChooseWord());
-	HangmanSprite hangmanSprite = new HangmanSprite();
+	private Scanner scanner = new Scanner(System.in);
+	private Player player = new Player("Test");
+	private FileManager fileManager = new FileManager("mots.txt");
+	private Hangman hangman = new Hangman(fileManager.readAndChooseWord());
+	private HangmanSprite hangmanSprite = new HangmanSprite();
 	
 	public App(String name) {
 		this.name = name;
 	}
 	
-	public String getRandomWord() {
-		/*System.out.println("Mot au hasard");
-		return "RANDOM MOT";*/
-		int randomIndex = (int) (Math.random() * wordList.length);
-		String randomWord = wordList[randomIndex];
-		return randomWord;
-	}
-	
 	public void generateMenu() {
-		Menu menu = new Menu("=====Hangman=====");
+		Menu menu = new Menu(this.name);
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
 		menu.addItemToList(new MenuItem("Quitter", this::quit));
