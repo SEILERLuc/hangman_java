@@ -11,7 +11,7 @@ public class Hangman {
 	public Hangman(String wordToFind) {
 		this.wordToFind = wordToFind;
 		for (int i = 0; i < wordToFind.length(); i++) {
-			this.currentWord.add('-');
+			this.currentWord.add('_');
 		}
 		this.wordFind = false;
 	}

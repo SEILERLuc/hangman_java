@@ -74,6 +74,10 @@ public class App {
 		System.out.print("Votre lettre : ");
 		try {
 			String userLetter = scanner.nextLine();
+			while(userLetter.length()>1) {
+				System.out.println("That's not a letter.");
+				userLetter = scanner.nextLine();
+			}
 			if (hangman.isInside(userLetter)) {
 				System.out.println("La lettre choisie est dans le mot");
 				hangman.updateCurrentWord(userLetter.charAt(0)); 
@@ -99,6 +103,16 @@ public class App {
 		System.out.print("Votre mot : ");
 		try {
 			String userWord = scanner.nextLine();
+			/*for(int i=0;i<userWord.length();i++) {
+				if((userWord.charAt(i)<'a'|| userWord.charAt(i)>'z')||(userWord.charAt(i)<'A'|| userWord.charAt(i)>'Z')) {
+					System.out.println("That's not a word");
+					userWord = scanner.nextLine();
+				}
+			}*/
+			while(userWord.length()<2) {
+				System.out.println("That's not a word");
+				userWord = scanner.nextLine();
+			}
 			if (hangman.isWordToFind(userWord)) {
 				System.out.println("Vous avez choisi le bon mot");
 				hangman.win();
