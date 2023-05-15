@@ -75,7 +75,7 @@ public class Hangman {
 	         sb.append(ch);
 	     }
 	     String currentString = sb.toString();
-	     System.out.println("String - " + currentString);	
+	     //System.out.println("String - " + currentString);	
 	     return currentString;
 	}
 	
