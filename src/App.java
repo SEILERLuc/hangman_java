@@ -59,7 +59,10 @@ public class App {
 					hangman.Wrongletter();
 					player.addToWrongChoices(userLetter.charAt(0));
 					player.getWrongChoices();
-					hangmanSprite.showSprites(hangman.getLives());;
+					hangmanSprite.showSprites(hangman.getLives());
+					if (hangman.getLives() == 0) {
+						hangman.GameOver();
+					}
 				}
 			}
 		} catch (Exception e) {
@@ -89,6 +92,9 @@ public class App {
 				player.addToWrongChoices(userWord.charAt(0));
 				player.getWrongChoices();
 				hangmanSprite.showSprites(hangman.getLives());
+				if (hangman.getLives() == 0) {
+					hangman.GameOver();
+				}
 			}
 		} catch (Exception e) {
 			System.out.println("Saisie invalide.");
