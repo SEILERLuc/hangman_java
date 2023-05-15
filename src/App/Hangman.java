@@ -1,6 +1,7 @@
+package App;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Classe Hangman, qui contient le mot à trouver, ainsi que le mot actuel,
@@ -10,11 +11,9 @@ public class Hangman {
 	
 	private String wordToFind;
 	private List<Character> currentWord = new ArrayList<Character>();
-	private boolean wordFind;
-	//private int lives;
 	private int lives;
 	
-	public void EasyLives() {
+	/*public void EasyLives() {
 		lives=10;
 	}
 	public void NormalLives() {
@@ -22,17 +21,32 @@ public class Hangman {
 	}
 	public void HardLives() {
 		lives=3;
+	}*/
+	
+	public void setDifficulty(String difficulty) {
+		if (difficulty.equals("1")) {
+			this.lives = 10;
+			System.out.println(this.getLives());
+		} else if (difficulty.equals("2")) {
+			this.lives = 5;
+			System.out.println(this.getLives());
+		} else if (difficulty.equals("3")) {
+			this.lives = 3;
+			System.out.println(this.getLives());
+		}
 	}
+	
 	public Hangman(String wordToFind) {
 		this.wordToFind = wordToFind;
 		for (int i = 0; i < wordToFind.length(); i++) {
 			this.currentWord.add('_');
 		}
-		this.wordFind = false;
 	}
+	
 	public int getLives() {
 		return this.lives;
 	}
+	
 	@Override
 	public String toString() {
 		return this.wordToFind;
@@ -75,7 +89,6 @@ public class Hangman {
 	         sb.append(ch);
 	     }
 	     String currentString = sb.toString();
-	     //System.out.println("String - " + currentString);	
 	     return currentString;
 	}
 	

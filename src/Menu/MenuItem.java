@@ -1,3 +1,4 @@
+package Menu;
 
 /**
  * Class MenuItem est un objet correspondant à une option du menu

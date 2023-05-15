@@ -1,5 +1,8 @@
+package App;
+
 import java.time.Duration;
 import java.time.Instant;
+
 public class Timer {
 
 	Instant start = Instant.now();

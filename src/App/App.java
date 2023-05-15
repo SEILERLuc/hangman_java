@@ -1,5 +1,9 @@
-import java.time.LocalDateTime;
+package App;
 import java.util.Scanner;
+
+import Menu.Menu;
+import Menu.MenuItem;
+import File.FileManager;
 
 /**
  * Cette classe permet de gérer toute l'application de HANGMAN
@@ -31,26 +35,29 @@ public class App {
 		System.out.println("1 : facile(10 vies)");
 		System.out.println("2 : normal(5 vies)");
 		System.out.println("3 : difficile(3 vies)");
+		
 		String difficulté= scanner.nextLine();
-		while(difficulté.equals("1")==false&&difficulté.equals("2")==false&&difficulté.equals("3")==false) {
+		while((difficulté.equals("1") == false) && (difficulté.equals("2") == false) && (difficulté.equals("3") == false)) {
 			System.out.println("Choisissez une dificulté :");
 			System.out.println("1 : facile(10 vies)");
 			System.out.println("2 : normal(5 vies)");
 			System.out.println("3 : dificile(3 vies)");
-			difficulté= scanner.nextLine();
+			difficulté = scanner.nextLine();
 		}
-		if(difficulté.equals("1")) {
+		hangman.setDifficulty(difficulté);
+		
+		/*if (difficulté.equals("1")) {
 			hangman.EasyLives();
 			System.out.println(hangman.getLives());
 		}
-		if(difficulté.equals("2")) {
+		if (difficulté.equals("2")) {
 			hangman.NormalLives();
 			System.out.println(hangman.getLives());
 		}
-		if(difficulté.equals("3")) {
+		if (difficulté.equals("3")) {
 			hangman.HardLives();
 			System.out.println(hangman.getLives());
-		}
+		}*/
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
 		menu.addItemToList(new MenuItem("Ajouter un mot au fichier", this::addNewWord));
@@ -67,7 +74,7 @@ public class App {
 		System.out.print("Votre lettre : ");
 		try {
 			String userLetter = scanner.nextLine();	
-			while(Character.isAlphabetic(userLetter.charAt(0))==false||userLetter.length()>1) {
+			while(Character.isAlphabetic(userLetter.charAt(0)) == false || userLetter.length() > 1) {
 				System.out.println("That's not a letter");
 				userLetter = scanner.nextLine();
 			}
@@ -134,7 +141,6 @@ public class App {
 	 * Permet à l'utilisateur d'ajouter un nouveau mot dans le fichier
 	 */
 	private void addNewWord() {
-		// Ajoute un mot choisi par l'utilisateur au fichier
 		System.out.println("Saisissez un mot à ajouter");
 		try {
 			String newWord = scanner.nextLine();
