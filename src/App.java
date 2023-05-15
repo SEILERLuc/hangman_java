@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 /**
  * Cette classe permet de gérer toute l'application de HANGMAN
- * @author lucky
- *
  */
 public class App {
 	
@@ -14,6 +12,9 @@ public class App {
 	private Hangman hangman = new Hangman(fileManager.readAndChooseWord());
 	private HangmanSprite hangmanSprite = new HangmanSprite();
 	
+	/**
+	 * Constructeur de l'application, par le nom choisi dans le main()
+	 */
 	public App(String name) {
 		this.name = name;
 	}
@@ -31,6 +32,9 @@ public class App {
 		menu.displayMenu(); 
 	}
 	
+	/**
+	 * Permet de faire toute la gestion à partir d'une lettre choisie
+	 */
 	private void userLetterChoice() {
 		hangman.displayCurrentWord();
 		System.out.print("Votre lettre : ");
@@ -64,6 +68,9 @@ public class App {
 		hangman.displayCurrentWord();
 	}
 
+	/**
+	 * Permet de faire toute la gestion à partir d'un mot choisi
+	 */
 	private void userWordChoice() {
 		hangman.displayCurrentWord();
 		System.out.print("Votre mot : ");
@@ -81,7 +88,7 @@ public class App {
 				hangman.Wrongletter();
 				player.addToWrongChoices(userWord.charAt(0));
 				player.getWrongChoices();
-				hangmanSprite.showSprites(hangman.getLives());;
+				hangmanSprite.showSprites(hangman.getLives());
 			}
 		} catch (Exception e) {
 			System.out.println("Saisie invalide.");

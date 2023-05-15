@@ -38,3 +38,4 @@ toilette
 pomme
 ordinateur
 hangman
+fichier
