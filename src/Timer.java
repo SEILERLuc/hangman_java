@@ -1,26 +1,15 @@
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-
+import java.time.Duration;
+import java.time.Instant;
 public class Timer {
 
-	private LocalTime beginTime = LocalTime.now();;
-	private int timeSec;
+	Instant start = Instant.now();
 	
 	public Timer() {}
 	
-	public String getTime() {
-		LocalDateTime myDateObj = LocalDateTime.now();
-	    System.out.println("Before formatting: " + myDateObj);
-	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
-	    String formattedDate = myDateObj.format(myFormatObj);
-	    System.out.println("After formatting: " + formattedDate);
-	    return formattedDate;
-	}
-	
-	public void setTime() {
-		LocalTime myObj = LocalTime.now();
+	public void displayTime() {
+	    Instant end = Instant.now();
+	    Duration timeElapsed = Duration.between(start, end);
+	    System.out.println("Vous avez trouvé en : "+ timeElapsed.toSeconds() +" secondes");
 	}
 	
 }

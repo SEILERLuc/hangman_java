@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
@@ -11,6 +12,7 @@ public class App {
 	private FileManager fileManager = new FileManager("mots.txt");
 	private Hangman hangman = new Hangman(fileManager.readAndChooseWord());
 	private HangmanSprite hangmanSprite = new HangmanSprite();
+	private Timer timer;
 	
 	/**
 	 * Constructeur de l'application, par le nom choisi dans le main()
@@ -53,6 +55,7 @@ public class App {
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
 		menu.addItemToList(new MenuItem("Ajouter un mot au fichier", this::addNewWord));
 		menu.addItemToList(new MenuItem("Quitter", this::quit));
+		timer = new Timer();
 		menu.displayMenu(); 
 	}
 	
@@ -73,6 +76,7 @@ public class App {
 				hangman.updateCurrentWord(userLetter.charAt(0));
 				System.out.println(hangman.getCurrentString() + " " + hangman.getWordToFind());
 				if (hangman.getCurrentString().equals(hangman.getWordToFind())) {
+					timer.displayTime();
 					hangman.win();
 				}
 			} else {
@@ -109,6 +113,7 @@ public class App {
 			}
 			if (hangman.isWordToFind(userWord)) {
 				System.out.println("Vous avez choisi le bon mot");
+				timer.displayTime();
 				hangman.win();
 			} else {
 				System.out.println("Ce n'est pas le bon mot");
