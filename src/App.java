@@ -117,11 +117,11 @@ public class App {
 				hangman.win();
 			} else {
 				System.out.println("Ce n'est pas le bon mot");
-				hangman.Wrongletter();
+				hangman.Wrongword();
 				player.addToWrongChoices(userWord.charAt(0));
 				player.getWrongChoices();
 				hangmanSprite.showSprites(hangman.getLives());
-				if (hangman.getLives() == 0) {
+				if (hangman.getLives() <= 0) {
 					hangman.GameOver();
 				}
 			}
