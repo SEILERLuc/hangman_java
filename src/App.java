@@ -74,7 +74,6 @@ public class App {
 			if (hangman.isInside(userLetter)) {
 				System.out.println("La lettre choisie est dans le mot");
 				hangman.updateCurrentWord(userLetter.charAt(0));
-				System.out.println(hangman.getCurrentString() + " " + hangman.getWordToFind());
 				if (hangman.getCurrentString().equals(hangman.getWordToFind())) {
 					timer.displayTime();
 					hangman.win();
