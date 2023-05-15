@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -62,8 +64,33 @@ public class FileManager {
 		
 	}
 	
-	public void writeNewWordToFile(String newWord) {
-		
+	public boolean alreadyInFile(String word) {
+		try {
+            BufferedReader reader = new BufferedReader(new FileReader(this.filename));
+            String ligne = reader.readLine();
+            while (ligne != null) {
+            	//System.out.println(word + " --- " + ligne);
+            	if (ligne.equals(word)) {
+            		//System.out.println("EGALITE");
+            		return true;
+            	}
+            	ligne = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.err.println("Erreur de lecture du fichier " + this.filename);
+        }
+		return false;
+	}
+	
+	public void writeToFile(String newWord) {
+		try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(this.filename, true));
+            writer.write(newWord + "\n");
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("Erreur d'écriture dans le fichier " + this.filename);
+        }
 	}
 	
 }

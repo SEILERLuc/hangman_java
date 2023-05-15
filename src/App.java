@@ -26,6 +26,7 @@ public class App {
 		Menu menu = new Menu(this.name);
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
+		menu.addItemToList(new MenuItem("Ajouter un mot au fichier", this::addNewWord));
 		menu.addItemToList(new MenuItem("Quitter", this::quit));
 		menu.displayMenu(); 
 	}
@@ -41,7 +42,11 @@ public class App {
 			}
 			if (hangman.isInside(userLetter)) {
 				System.out.println("La lettre choisie est dans le mot");
-				hangman.updateCurrentWord(userLetter.charAt(0)); 
+				hangman.updateCurrentWord(userLetter.charAt(0));
+				System.out.println(hangman.getCurrentString() + " " + hangman.getWordToFind());
+				if (hangman.getCurrentString().equals(hangman.getWordToFind())) {
+					hangman.win();
+				}
 			} else {
 				if (player.isAldreadyWrong(userLetter.charAt(0))) {
 					System.out.println("Vous avez déjà choisi cette lettre");
@@ -50,7 +55,7 @@ public class App {
 					hangman.Wrongletter();
 					player.addToWrongChoices(userLetter.charAt(0));
 					player.getWrongChoices();
-					hangmanSprite.showSprites(hangman.getLives());;
+					hangmanSprite.showSprites(hangman.getLives());
 				}
 			}
 		} catch (Exception e) {
@@ -86,11 +91,25 @@ public class App {
 	
 	/**
 	 * Permet à l'utilisateur d'ajouter un nouveau mot dans le fichier
-	 * @param word
 	 */
-	private void addNewWordToFile(String word) {
+	private void addNewWord() {
 		// Ajoute un mot choisi par l'utilisateur au fichier
-		System.out.println("Ajouter un mot dans le fichier");
+		System.out.println("Saisissez un mot à ajouter");
+		try {
+			String newWord = scanner.nextLine();
+			while (newWord.length() < 2 || newWord.matches("[a-zA-Z]+") == false) {
+				System.out.println("That's not a word");
+				newWord = scanner.nextLine();
+			}
+			if (fileManager.alreadyInFile(newWord)) {
+				System.out.println("Ce mot existe déjà");
+			} else {
+				fileManager.writeToFile(newWord);
+				System.out.println("Mot ajouté au fichier");
+			}
+		} catch (Exception e) {
+			System.out.println("Saisie invalide.");
+		}
 	}
 	
 	/**
