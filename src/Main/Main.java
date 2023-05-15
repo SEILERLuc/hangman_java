@@ -1,3 +1,5 @@
+package Main;
+import App.App;
 
 public class Main {
 

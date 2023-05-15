@@ -40,3 +40,4 @@ ordinateur
 hangman
 fichier
 grenouille
+canva
