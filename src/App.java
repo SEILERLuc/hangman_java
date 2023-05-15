@@ -25,6 +25,30 @@ public class App {
 	 */
 	public void generateMenu() {
 		Menu menu = new Menu(this.name);
+		System.out.println("Choisissez une difficulté :");
+		System.out.println("1 : facile(10 vies)");
+		System.out.println("2 : normal(5 vies)");
+		System.out.println("3 : difficile(3 vies)");
+		String difficulté= scanner.nextLine();
+		while(difficulté.equals("1")==false&&difficulté.equals("2")==false&&difficulté.equals("3")==false) {
+			System.out.println("Choisissez une dificulté :");
+			System.out.println("1 : facile(10 vies)");
+			System.out.println("2 : normal(5 vies)");
+			System.out.println("3 : dificile(3 vies)");
+			difficulté= scanner.nextLine();
+		}
+		if(difficulté.equals("1")) {
+			hangman.EasyLives();
+			System.out.println(hangman.getLives());
+		}
+		if(difficulté.equals("2")) {
+			hangman.NormalLives();
+			System.out.println(hangman.getLives());
+		}
+		if(difficulté.equals("3")) {
+			hangman.HardLives();
+			System.out.println(hangman.getLives());
+		}
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
 		menu.addItemToList(new MenuItem("Ajouter un mot au fichier", this::addNewWord));

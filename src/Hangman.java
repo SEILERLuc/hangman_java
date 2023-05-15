@@ -12,7 +12,7 @@ public class Hangman {
 	private List<Character> currentWord = new ArrayList<Character>();
 	private boolean wordFind;
 	//private int lives;
-	private int lives = 10;
+	private int lives;
 	
 	public void EasyLives() {
 		lives=10;
