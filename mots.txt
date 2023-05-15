@@ -39,3 +39,4 @@ pomme
 ordinateur
 hangman
 fichier
+grenouille
