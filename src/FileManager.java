@@ -11,40 +11,23 @@ import java.util.Scanner;
  * Cette classe permet de faire la gestion de fichier :
  * - Lire un fichier de mots et en choisir un au hasard
  * - Ajouter un nouveau mot dans le fichier, choisi par l'utilisateur
- * @author lucky
- *
  */
 public class FileManager {
 	
 	private String filename;
 	Scanner myReader;
 	
+	/**
+	 * Constructeur du file manager, ayant comme nom celui du fichier
+	 */
 	public FileManager(String filename) {
 		this.filename = filename;
 	}
 	
-	public String readAndChooseWord() {
-		/*try {
-		    File myFile = new File(this.filename);
-		    myReader = new Scanner(myFile);
-		    
-		    if (myFile.exists()) {
-		        System.out.println("File name: " + myFile.getName());
-		    } else {
-		        System.out.println("The file does not exist.");
-		    }
-		    
-		    while (myReader.hasNextLine()) {
-		    	String data = myReader.nextLine();
-		    	System.out.println(data);
-		    }
-		} catch (FileNotFoundException e) {
-			System.out.println("File doesn't exist !");
-		    e.printStackTrace();
-		} finally {
-			myReader.close();
-		}*/
-		
+	/**
+	 * Lit le fichier s'il existe et choisi un mot au hasard pour le jeu
+	 */
+	public String readAndChooseWord() {	
 		ArrayList<String> wordList = new ArrayList<String>();
         try {
             BufferedReader reader = new BufferedReader(new FileReader(this.filename));
@@ -64,6 +47,9 @@ public class FileManager {
 		
 	}
 	
+	/**
+	 * Vérifie si le mot choisi lorsqu'il veut en rajouter un est déjà dans le fichier
+	 */
 	public boolean alreadyInFile(String word) {
 		try {
             BufferedReader reader = new BufferedReader(new FileReader(this.filename));
@@ -83,6 +69,9 @@ public class FileManager {
 		return false;
 	}
 	
+	/**
+	 * Ajoute/Ecrit dans le fichier le nouveau mot choisi par le joueur
+	 */
 	public void writeToFile(String newWord) {
 		try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(this.filename, true));

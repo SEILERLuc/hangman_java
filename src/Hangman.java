@@ -5,15 +5,14 @@ import java.util.Scanner;
 /**
  * Classe Hangman, qui contient le mot à trouver, ainsi que le mot actuel,
  * qui est affiché pour le joueur
- * @author lucky
- *
  */
 public class Hangman {
 	
 	private String wordToFind;
 	private List<Character> currentWord = new ArrayList<Character>();
 	private boolean wordFind;
-	private int lives;
+	//private int lives;
+	private int lives = 10;
 	
 	public void EasyLives() {
 		lives=10;

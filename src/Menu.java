@@ -13,6 +13,9 @@ public class Menu {
 	List<MenuItem> optionsList = new ArrayList<MenuItem>();
 	Scanner scanner;
 	
+	/**
+	 * Constructeur du menu, prenant un nom égal au nom de l'application
+	 */
 	public Menu(String name) {
 		this.name = name;
 	}
@@ -49,16 +52,15 @@ public class Menu {
 	
 	/**
 	 * Execute l'option associée, choisie par le joueur
-	 * @param choice
+	 * @param choice Choix de l'utilisateur pour les actions
 	 */
 	public void executeOption(int choice) {
         optionsList.get(choice - 1).executeFunction();
     }
 	
-	
 	/**
 	 * Permet d'ajouter une nouvelle option à la liste d'options
-	 * @param option
+	 * @param option MenuItem : fonctionnalité ajouté au menu
 	 */
 	public void addItemToList(MenuItem option) {
 		this.optionsList.add(option);
