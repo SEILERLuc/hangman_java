@@ -63,6 +63,8 @@ public class App {
 		menu.addItemToList(new MenuItem("Ajouter un mot au fichier", this::addNewWord));
 		menu.addItemToList(new MenuItem("Quitter", this::quit));
 		timer = new Timer();
+		//System.out.println("Voici le mot à trouver " + hangman.getWordToFind());
+		hangman.displayCurrentWord();
 		menu.displayMenu(); 
 	}
 	

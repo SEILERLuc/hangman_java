@@ -107,7 +107,7 @@ public class Hangman {
 	public void GameOver() {
 		System.out.println(lives);
 		System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/ \\  |\n=======");
-		System.out.println("Game over");
+		System.out.println("Game over, le mot était " + this.wordToFind.toUpperCase());
 		System.exit(0);
 	}
 			

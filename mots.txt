@@ -41,3 +41,5 @@ hangman
 fichier
 grenouille
 canva
+yniv
+ynov
