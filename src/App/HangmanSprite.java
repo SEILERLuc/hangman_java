@@ -1,9 +1,16 @@
 package App;
 
+/**
+ * Classe HangmanSprite: pour les sprites de Hangman en ASCII art
+ */
 public class HangmanSprite {
 	
 	public HangmanSprite() {}
 	
+	/**
+	 * Montre les sprites du Hangman au court de la partie
+	 * @param lives: nombre de vies restantes du Hangman 
+	 */
 	public void showSprites(int lives) {
 		if (lives == 1) {
 			System.out.println(" +---+\n |   |\n O   |\n/|\\  |\n/    |\n=======");

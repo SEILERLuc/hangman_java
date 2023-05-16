@@ -13,16 +13,6 @@ public class Hangman {
 	private List<Character> currentWord = new ArrayList<Character>();
 	private int lives;
 	
-	/*public void EasyLives() {
-		lives=10;
-	}
-	public void NormalLives() {
-		lives=5;
-	}
-	public void HardLives() {
-		lives=3;
-	}*/
-	
 	public void setDifficulty(String difficulty) {
 		if (difficulty.equals("1")) {
 			this.lives = 10;
