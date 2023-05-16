@@ -45,19 +45,6 @@ public class App {
 			difficulté = scanner.nextLine();
 		}
 		hangman.setDifficulty(difficulté);
-		
-		/*if (difficulté.equals("1")) {
-			hangman.EasyLives();
-			System.out.println(hangman.getLives());
-		}
-		if (difficulté.equals("2")) {
-			hangman.NormalLives();
-			System.out.println(hangman.getLives());
-		}
-		if (difficulté.equals("3")) {
-			hangman.HardLives();
-			System.out.println(hangman.getLives());
-		}*/
 		menu.addItemToList(new MenuItem("Choisir une lettre", this::userLetterChoice));
 		menu.addItemToList(new MenuItem("Choisir un mot", this::userWordChoice));
 		menu.addItemToList(new MenuItem("Ajouter un mot au fichier", this::addNewWord));
